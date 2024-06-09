@@ -6,5 +6,6 @@ export default defineSchema({
     body: v.string(),
     title: v.string(),
     userID: v.string(),
+    fileID: v.string(),
   }).index("by_userID", ["userID"]),
 });

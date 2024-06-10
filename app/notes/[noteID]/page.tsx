@@ -26,7 +26,7 @@ export default function NotesPage({
             <iframe src={note.noteFileURL} className="w-full h-full" />
           )}
         </div>
-        <QueryPanel />
+        <QueryPanel noteID={note._id} />
       </div>
     </main>
   );

@@ -8,6 +8,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Doc } from "@/convex/_generated/dataModel";
+import { View } from "lucide-react";
+import Link from "next/link";
 
 export function NoteCard({ note }: { note: Doc<"notes"> }) {
   return (
@@ -20,7 +22,16 @@ export function NoteCard({ note }: { note: Doc<"notes"> }) {
         <p>Card Content</p>
       </CardContent>
       <CardFooter>
-        <Button variant="secondary">View Notes</Button>
+        <Button
+          asChild
+          variant="secondary"
+          className="flex items-center gap-x-2"
+        >
+          <Link href={`/notes/${note._id}`}>
+            <View />
+            View Notes
+          </Link>
+        </Button>
       </CardFooter>
     </Card>
   );

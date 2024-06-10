@@ -1,7 +1,5 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { api } from "@/convex/_generated/api";
-import { useMutation } from "convex/react";
 import {
   Dialog,
   DialogContent,
@@ -12,14 +10,17 @@ import {
 } from "@/components/ui/dialog";
 import NoteForm from "./note-form";
 import { useState } from "react";
+import { Upload } from "lucide-react";
 
 export default function AddNotes() {
   const [isOpen, setIsOpen] = useState(false);
-  const createNotes = useMutation(api.notes.createNotes);
   return (
     <Dialog onOpenChange={setIsOpen} open={isOpen}>
       <DialogTrigger asChild>
-        <Button>Take Note!</Button>
+        <Button className="flex gap-x-2">
+          <Upload />
+          Take Note!
+        </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>

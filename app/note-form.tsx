@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { LoaderButton } from "@/components/loader-button";
+import { Id } from "@/convex/_generated/dataModel";
 const formSchema = z.object({
   title: z
     .string()
@@ -57,7 +58,7 @@ export default function NoteForm({ onUpload }: { onUpload: () => void }) {
     await createNotes({
       title: values.title,
       body: values.body,
-      fileID: storageId.toString(),
+      fileID: storageId as Id<"_storage">,
     });
     onUpload();
   }
